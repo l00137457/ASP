@@ -2,39 +2,40 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+   <div class="jumbotron">
+        <h1>My great website</h1>
+        <p class="lead">Welcome to my wonderful website. Click on any of the links below to direct you to relevant information.</p>
+        
     </div>
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>Reports</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                Click on this button to view reports available to the user.
             </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
+             <p>
+                <a class="btn btn-default" href="/reports.aspx">View reports &raquo;</a>
             </p>
+           
         </div>
         <div class="col-md-4">
-            <h2>Get more libraries</h2>
+            <h2>Update records</h2>
             <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
+                Click here to update records in the database.
             </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+             <p>
+                <a class="btn btn-default" href="/transactions.aspx">Update records &raquo;</a>
             </p>
+           
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>View records</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                Click on this link to search for specific information in the database.
             </p>
             <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" href="/search.aspx">Search records &raquo;</a>
             </p>
         </div>
     </div>

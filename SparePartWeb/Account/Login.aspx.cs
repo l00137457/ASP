@@ -15,12 +15,16 @@ namespace SparePartWeb.Account
     {
          Spare_Part_SystemEntities db = new Spare_Part_SystemEntities();
          User user = new User();
+      
 
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
             ((SiteMaster)this.Master).MenuVisibility = false;
-            ((SiteMaster)this.Master).TransactionsVisibility = false;
+            ((SiteMaster)this.Master).VendorsVisibility = false;
+            ((SiteMaster)this.Master).EquipmentVisibility = false;
+            ((SiteMaster)this.Master).StatisticsVisibility = false;
+            ((SiteMaster)this.Master).UpdatesVisibility = false;            
             ((SiteMaster)this.Master).SearchVisibility = false;
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
@@ -31,9 +35,7 @@ namespace SparePartWeb.Account
                 RegisterHyperLink.NavigateUrl += "?ReturnUrl=" + returnUrl;
             }
         }
-
-
-
+       
         protected void LogIn_Click(object sender, EventArgs e)
         {
             bool authenticated = false;
@@ -47,13 +49,43 @@ namespace SparePartWeb.Account
             }
             if (authenticated)
             {
+                var accessLevel = user.AccessLevel;
+
+                switch (accessLevel)
+                {
+                        //Display an employee menu
+                    case 1:
+                        ((SiteMaster)this.Master).UserNameVisibility = true;
+                        ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                        ((SiteMaster)this.Master).currentuser = this.user;
+                        ((SiteMaster)this.Master).MenuVisibility = true;
+                        ((SiteMaster)this.Master).EquipmentVisibility = true;
+                        break;
+
+                    case 2:
+                        //Display a manager menu
+                        ((SiteMaster)this.Master).UserNameVisibility = true;
+                        ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                        ((SiteMaster)this.Master).currentuser = this.user;
+                        ((SiteMaster)this.Master).MenuVisibility = true;
+                        ((SiteMaster)this.Master).VendorsVisibility = true;
+                        ((SiteMaster)this.Master).EquipmentVisibility = true;
+                        ((SiteMaster)this.Master).StatisticsVisibility = true;              
+                        ((SiteMaster)this.Master).SearchVisibility = true;
+                        break;
+
+                    case 3:
+                        // Display an administrator menu
+                        ((SiteMaster)this.Master).UserNameVisibility = true;
+                        ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                        ((SiteMaster)this.Master).currentuser = this.user;
+                        ((SiteMaster)this.Master).MenuVisibility = true;
+                        ((SiteMaster)this.Master).UpdatesVisibility = true;
+                        break;                                                                                        
+                }
                 //Label lblUser = this.Master.FindControl("lblUsername") as Label;
                 //lblUser.Text = user.Username.ToString();
-                ((SiteMaster)this.Master).UserNameVisibility = true;
-                ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
-                ((SiteMaster)this.Master).currentuser = this.user;
-                ((SiteMaster)this.Master).MenuVisibility = true;
-                ((SiteMaster)this.Master).TransactionsVisibility = true;
+                //((SiteMaster)this.Master).UpdatesVisibility = true;               
                 ((SiteMaster)this.Master).SearchVisibility = true;
 
                 // ((SiteMaster)this.Master).UserName = user.Username;

@@ -16,6 +16,56 @@ namespace SparePartWeb
         private const string AntiXsrfUserNameKey = "__AntiXsrfUserName";
         private string _antiXsrfTokenValue;
 
+        public bool MenuVisibility
+        {
+            get { return mnuReports.Visible; }
+            set { this.mnuReports.Visible = value; }
+        }
+
+        public bool SearchVisibility
+        {
+            get { return mnuSearch.Visible; }
+            set { this.mnuSearch.Visible = value; }
+        }
+
+        public bool UserNameVisibility
+        {
+            get { return lblUsername.Visible; }
+            set { this.lblUsername.Visible = value; }
+        }
+
+        public bool VendorsVisibility
+        {
+            get { return mnuVendors.Visible; }
+            set { this.mnuVendors.Visible = value; }
+        }
+
+        public bool EquipmentVisibility
+        {
+            get { return mmuEquipment.Visible; }
+            set { this.mmuEquipment.Visible = value; }
+        }
+
+        public bool StatisticsVisibility
+        {
+            get { return mnuStatistics.Visible; }
+            set { this.mnuStatistics.Visible = value; }
+        }
+
+        public bool UpdatesVisibility
+        {
+            get { return mmuUpdates.Visible; }
+            set { this.mmuUpdates.Visible = value; }
+        }
+
+        public string UserNameLabel
+        {
+            get { return lblUsername.Text; }
+            set { this.lblUsername.Text = value; }
+        }
+       
+        public User currentuser;
+
         protected void Page_Init(object sender, EventArgs e)
         {
             // The code below helps to protect against XSRF attacks
@@ -46,10 +96,12 @@ namespace SparePartWeb
             }
 
             Page.PreLoad += master_Page_PreLoad;
+
         }
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
+
             if (!IsPostBack)
             {
                 // Set Anti-XSRF token
@@ -69,6 +121,10 @@ namespace SparePartWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (currentuser != null)
+            {
+                lblUsername.Text = currentuser.Username;
+            }
 
         }
 
