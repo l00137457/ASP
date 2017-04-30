@@ -26,7 +26,6 @@ namespace SparePartWeb
         }
     
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Address> Addresses { get; set; }
         public virtual DbSet<Company> Companies { get; set; }
         public virtual DbSet<Company_Contact> Company_Contact { get; set; }
@@ -42,5 +41,6 @@ namespace SparePartWeb
         public virtual DbSet<Type> Types { get; set; }
         public virtual DbSet<Used_Part> Used_Part { get; set; }
         public virtual DbSet<Vendor> Vendors { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

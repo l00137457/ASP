@@ -31,31 +31,22 @@ namespace SparePartWeb.Account {
         protected global::System.Web.UI.WebControls.Literal FailureText;
         
         /// <summary>
-        /// Email control.
+        /// tbxUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.WebControls.TextBox tbxUsername;
         
         /// <summary>
-        /// Password control.
+        /// tbxPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Password;
-        
-        /// <summary>
-        /// RememberMe control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox RememberMe;
+        protected global::System.Web.UI.WebControls.TextBox tbxPassword;
         
         /// <summary>
         /// RegisterHyperLink control.

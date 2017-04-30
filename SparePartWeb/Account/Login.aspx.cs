@@ -5,14 +5,23 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Owin;
 using SparePartWeb.Models;
+using System.Linq;
+using System.Web.UI.WebControls;
+
 
 namespace SparePartWeb.Account
 {
     public partial class Login : Page
     {
+         Spare_Part_SystemEntities db = new Spare_Part_SystemEntities();
+         User user = new User();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             RegisterHyperLink.NavigateUrl = "Register";
+            ((SiteMaster)this.Master).MenuVisibility = false;
+            ((SiteMaster)this.Master).TransactionsVisibility = false;
+            ((SiteMaster)this.Master).SearchVisibility = false;
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
@@ -23,39 +32,40 @@ namespace SparePartWeb.Account
             }
         }
 
-        protected void LogIn(object sender, EventArgs e)
+
+
+        protected void LogIn_Click(object sender, EventArgs e)
         {
-            if (IsValid)
+            bool authenticated = false;
+            var username = tbxUsername.Text;
+            var password = tbxPassword.Text;
+            foreach (var _user in db.Users.Where(t => t.Username == username && t.Password == password))
             {
-                // Validate the user password
-                var manager = Context.GetOwinContext().GetUserManager<ApplicationUserManager>();
-                var signinManager = Context.GetOwinContext().GetUserManager<ApplicationSignInManager>();
-
-                // This doen't count login failures towards account lockout
-                // To enable password failures to trigger lockout, change to shouldLockout: true
-                var result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout: false);
-
-                switch (result)
-                {
-                    case SignInStatus.Success:
-                        IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                        break;
-                    case SignInStatus.LockedOut:
-                        Response.Redirect("/Account/Lockout");
-                        break;
-                    case SignInStatus.RequiresVerification:
-                        Response.Redirect(String.Format("/Account/TwoFactorAuthenticationSignIn?ReturnUrl={0}&RememberMe={1}", 
-                                                        Request.QueryString["ReturnUrl"],
-                                                        RememberMe.Checked),
-                                          true);
-                        break;
-                    case SignInStatus.Failure:
-                    default:
-                        FailureText.Text = "Invalid login attempt";
-                        ErrorMessage.Visible = true;
-                        break;
-                }
+                user = _user;
+                authenticated = true;
+                //break;
             }
-        }
+            if (authenticated)
+            {
+                //Label lblUser = this.Master.FindControl("lblUsername") as Label;
+                //lblUser.Text = user.Username.ToString();
+                ((SiteMaster)this.Master).UserNameVisibility = true;
+                ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                ((SiteMaster)this.Master).currentuser = this.user;
+                ((SiteMaster)this.Master).MenuVisibility = true;
+                ((SiteMaster)this.Master).TransactionsVisibility = true;
+                ((SiteMaster)this.Master).SearchVisibility = true;
+
+                // ((SiteMaster)this.Master).UserName = user.Username;
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+
+            }
+            else
+            {
+                FailureText.Text = "Invalid login attempt. Please check your user details and try again.";
+                ErrorMessage.Visible = true;
+            }
+        
+         }
     }
 }

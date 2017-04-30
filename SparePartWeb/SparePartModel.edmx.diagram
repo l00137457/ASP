@@ -6,7 +6,6 @@
     <edmx:Diagrams>
       <Diagram DiagramId="52fe63bc937f4c21bfa37f44ec8c61e8" Name="Diagram1">
         <EntityTypeShape EntityType="SpModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpModel.User" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.Address" Width="1.5" PointX="3" PointY="21.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.Company" Width="1.5" PointX="5.25" PointY="15.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.Company_Contact" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
@@ -19,7 +18,7 @@
         <EntityTypeShape EntityType="SpModel.Purchase" Width="1.5" PointX="5.25" PointY="18.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.SPAREPART" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.Sparepart_Vendor_1" Width="1.5" PointX="7.5" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="SpModel.Type" Width="1.5" PointX="3.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="SpModel.Type" Width="1.5" PointX="3.75" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.Used_Part" Width="1.5" PointX="8.25" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SpModel.Vendor" Width="1.5" PointX="5.25" PointY="22.125" IsExpanded="true" />
         <AssociationConnector Association="SpModel.FK_Vendor_Address" ManuallyRouted="false" />
@@ -38,6 +37,7 @@
         <AssociationConnector Association="SpModel.FK_Sparepart_Vendor_1_SPAREPART" ManuallyRouted="false" />
         <AssociationConnector Association="SpModel.FK_Sparepart_Vendor_1_Vendor" ManuallyRouted="false" />
         <AssociationConnector Association="SpModel.Maintenenace_Sparepart" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SpModel.User" Width="1.5" PointX="0.75" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

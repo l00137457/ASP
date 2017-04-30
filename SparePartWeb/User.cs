@@ -19,5 +19,6 @@ namespace SparePartWeb
         public string Password { get; set; }
         public string Forename { get; set; }
         public string Surname { get; set; }
+        public int AccessLevel { get; set; }
     }
 }
