@@ -60,6 +60,7 @@ namespace SparePartWeb.Account
                         ((SiteMaster)this.Master).currentuser = this.user;
                         ((SiteMaster)this.Master).MenuVisibility = true;
                         ((SiteMaster)this.Master).EquipmentVisibility = true;
+                        ((SiteMaster)this.Master).SearchVisibility = true;
                         break;
 
                     case 2:
@@ -81,14 +82,15 @@ namespace SparePartWeb.Account
                         ((SiteMaster)this.Master).currentuser = this.user;
                         ((SiteMaster)this.Master).MenuVisibility = true;
                         ((SiteMaster)this.Master).UpdatesVisibility = true;
+                        break;
+                    default:
+                        FailureText.Text = "Invalid Login attempt";
+                        ErrorMessage.Visible = true;
                         break;                                                                                        
                 }
-                //Label lblUser = this.Master.FindControl("lblUsername") as Label;
-                //lblUser.Text = user.Username.ToString();
-                //((SiteMaster)this.Master).UpdatesVisibility = true;               
-                ((SiteMaster)this.Master).SearchVisibility = true;
-
-                // ((SiteMaster)this.Master).UserName = user.Username;
+                Label lblUser = this.Master.FindControl("lblUsername") as Label;
+                lblUser.Text = user.Username.ToString();                                           
+               // ((SiteMaster)this.Master).UserName = user.Username;
                 IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
 
             }
