@@ -1,8 +1,8 @@
-﻿<%@ Page Title="Vendor Address" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="VendorAddress.aspx.cs" Inherits="SparePartWeb.VendorAddress" %>
+﻿<%@ Page Title="Parts" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Part.aspx.cs" Inherits="SparePartWeb.Part" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h2><%: Title %>.</h2>
+     <h2><%: Title %>.</h2>
     <div class="jumbotron">
-        <h1>Vendor Address</h1>
+        <h1>Spare Part</h1>
     </div>
     <br />
     <br />
@@ -15,7 +15,7 @@
             OnItemCanceling="lstAllProducts_ItemCanceling" 
             OnItemDeleting="lstAllProducts_ItemDeleting" 
             InsertItemPosition="LastItem" 
-            OnItemInserting="lstAllProducts_ItemInserting" ItemType="SparePartWeb.Address">           
+            OnItemInserting="lstAllProducts_ItemInserting" ItemType="SparePartWeb.SPAREPART">           
             <LayoutTemplate>
                 <table id="Table1" runat="server">
                     <tr id="Tr1" runat="server">
@@ -23,12 +23,13 @@
                             <table id="itemPlaceholderContainer" runat="server" border="1">
                                 <tr id="Tr2" runat="server">
                                     <th id="Th1" runat="server" border="1"></th>
-                                    <th id="Th2" runat="server">Vendor Name</th>
-                                    <th id="Th3" runat="server">Vendor Address 1</th>
-                                    <th id="Th4" runat="server">Vendor Address 2</th>
-                                    <th id="Th5" runat="server">Vendor City</th>
-                                    <th id="Th6" runat="server">Vendor County</th>
-                                    <th id="Th7" runat="server">Vendor Postcode</th>                                   
+                                    <th id="Th2" runat="server">Spare ID</th>
+                                    <th id="Th3" runat="server">Purchase Date</th>
+                                    <th id="Th4" runat="server">Name</th>
+                                    <th id="Th5" runat="server">Unit Cost</th>
+                                    <th id="Th6" runat="server">Slow Part</th>
+                                    <th id="Th7" runat="server">Fast Type</th>
+                                    <th id="Th8" runat="server">Expected Life Time</th>                                   
                                     
                                 </tr>
                                 <tr id="itemPlaceholder" runat="server">
@@ -49,22 +50,25 @@
                         <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Edit" />
                     </td>
                     <td>
-                        <asp:Label ID="lblName" runat="server" Text='<%#:Item.Vendor_name %>' />
+                        <asp:Label ID="lblSpareID" runat="server" Text='<%#:Item.Spare_ID %>' />
                     </td>
                     <td>
-                        <asp:Label ID="lblAddr1" runat="server" Text='<%#:Item.Ven_address_addr1  %>' />
+                        <asp:Label ID="lblDate" runat="server" Text='<%#:Item.Purchase_date %>' />
                     </td>
                     <td>
-                        <asp:Label ID="lblAddr2" runat="server" Text='<%#:Item.Ven_address_addr2 %>' />
+                        <asp:Label ID="lblName" runat="server" Text='<%#:Item.Name %>' />
                     </td>
                     <td>
-                        <asp:Label ID="lblCity" runat="server" Text='<%#:Item.Ven_address_city %>' />
+                        <asp:Label ID="lblCost" runat="server" Text='<%#:Item.Unit_cost %>' />
                     </td>
                     <td>
-                        <asp:Label ID="lblCounty" runat="server" Text='<%#:Item.Ven_address_county %>' />
+                        <asp:Label ID="lblSlow" runat="server" Text='<%#:Item.Type_slow_part %>' />
                     </td>
                     <td>
-                        <asp:Label ID="lblCode" runat="server" Text='<%#:Item.Ven_address_postcode %>' />
+                        <asp:Label ID="lblFast" runat="server" Text='<%#:Item.Type_fast_part %>' />
+                    </td>
+                    <td>
+                        <asp:Label ID="lblLife" runat="server" Text='<%#:Item.Exp_lifeTime %>' />
                     </td>
                 </tr>
             </ItemTemplate>
@@ -77,22 +81,25 @@
                             Text="Cancel" />
                     </td>
                     <td>
-                    <asp:Label ID="lblName" runat="server" Text='<%#:Item.Vendor_name%>' />
+                    <asp:Label ID="lblSpareID" runat="server" Text='<%#:Item.Spare_ID%>' />
                     </td> 
                     <td>
-                        <asp:TextBox ID="tbxAddr1" runat="server" Text='<%# BindItem.Ven_address_addr1 %>' />
+                        <asp:TextBox ID="tbxDate" runat="server" Text='<%# BindItem.Purchase_date %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxAddr2" runat="server" Text='<%# BindItem.Ven_address_addr2 %>' />
+                        <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Name %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxCity" runat="server" Text='<%# BindItem.Ven_address_city %>' />
+                        <asp:TextBox ID="tbxCost" runat="server" Text='<%# BindItem.Unit_cost %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxCounty" runat="server" Text='<%# BindItem.Ven_address_county %>' />
+                        <asp:TextBox ID="tbxSlow" runat="server" Text='<%# BindItem.Type_slow_part %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxPostcode" runat="server" Text='<%# BindItem.Ven_address_postcode %>' />
+                        <asp:TextBox ID="tbxFast" runat="server" Text='<%# BindItem.Type_fast_part %>' />
+                    </td>
+                    <td>
+                        <asp:TextBox ID="tbxLife" runat="server" Text='<%# BindItem.Exp_lifeTime %>' />
                     </td>
                     
                 </tr>
@@ -106,22 +113,25 @@
                             Text="Clear" />
                     </td>                 
                     <td>
-                        <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Vendor_name %>'/>                    
+                        <asp:TextBox ID="tbxSpareID" runat="server" Text='<%# BindItem.Spare_ID %>'/>                    
                     </td>                    
                     <td>
-                        <asp:TextBox ID="tbxAddr1" runat="server" Text='<%# BindItem.Ven_address_addr1%>' />
+                        <asp:TextBox ID="tbxDate" runat="server" Text='<%# BindItem.Purchase_date%>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxAddr2" runat="server" Text='<%# BindItem.Ven_address_addr2 %>' />
+                        <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Name %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxCity" runat="server" Text='<%# BindItem.Ven_address_city %>' />
+                        <asp:TextBox ID="tbxCost" runat="server" Text='<%# BindItem.Unit_cost %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxCounty" runat="server" Text='<%# BindItem.Ven_address_county %>' />
+                        <asp:TextBox ID="tbxSlow" runat="server" Text='<%# BindItem.Type_slow_part %>' />
                     </td>
                     <td>
-                        <asp:TextBox ID="tbxPostcode" runat="server" Text='<%# BindItem.Ven_address_postcode %>' />
+                        <asp:TextBox ID="tbxFast" runat="server" Text='<%# BindItem.Type_fast_part %>' />
+                    </td>
+                    <td>
+                        <asp:TextBox ID="tbxLife" runat="server" Text='<%# BindItem.Exp_lifeTime %>' />
                     </td>
                    
                 </tr>

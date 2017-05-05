@@ -13,11 +13,12 @@ namespace SparePartWeb.Account
     public partial class Register : Page
     {
         Spare_Part_SystemEntities db = new Spare_Part_SystemEntities();
+        User user = new User();
         protected void CreateNewUser_Click(object sender, EventArgs e)
         {
             if (Page.IsValid)
              {
-                User user = new User();
+               // User user = new User();
                 var username = tbxUsername.Text;
                 var password = tbxPassword.Text;
                 var forename = tbxForename.Text;
@@ -37,7 +38,7 @@ namespace SparePartWeb.Account
                     if (updated)
                     {                       
                         
-                        switch (Convert.ToInt16(accessLevel))
+                        switch (user.AccessLevel)
                         {
                             //Display an employee menu
                             case 1:

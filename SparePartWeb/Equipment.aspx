@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Equipment.aspx.cs" Inherits="SparePartWeb.Equipment" %>
+﻿<%@ Page Title="Equipment" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Equipment.aspx.cs" Inherits="SparePartWeb.Equipment" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %>.</h2>
     <div class="jumbotron">
@@ -84,6 +84,7 @@
                         <asp:Button ID="CancelButton" runat="server" CommandName="Cancel"
                             Text="Cancel" />
                     </td>
+                    <td>
                     <asp:Label ID="lblEqiupID" runat="server" Text='<%# Eval("Equip_ID") %>' />
                     </td> 
                     <td>
