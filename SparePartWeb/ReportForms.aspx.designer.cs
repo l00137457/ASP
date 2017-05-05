@@ -11,7 +11,7 @@ namespace SparePartWeb
 {
 
 
-    public partial class EquipMainResult
+    public partial class ReportForms
     {
     }
 }

@@ -204,7 +204,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="EquipMainResult.aspx" />
     <Content Include="Equipment.aspx" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -214,8 +213,10 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\SparePartNew.pubxml" />
     <None Include="Properties\PublishProfiles\SparePartServer.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="ReportForms.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -260,6 +261,7 @@
       <DependentUpon>SparePartModel.edmx</DependentUpon>
       <LastGenOutput>SparePartModel.cs</LastGenOutput>
     </Content>
+    <Content Include="VendorAddress.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -424,13 +426,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="EquipMainResult.aspx.cs">
-      <DependentUpon>EquipMainResult.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="EquipMainResult.aspx.designer.cs">
-      <DependentUpon>EquipMainResult.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Equipment.aspx.cs">
       <DependentUpon>Equipment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -460,6 +455,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Purchase.cs">
       <DependentUpon>SparePartModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReportForms.aspx.cs">
+      <DependentUpon>ReportForms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportForms.aspx.designer.cs">
+      <DependentUpon>ReportForms.aspx</DependentUpon>
     </Compile>
     <Compile Include="Search.aspx.cs">
       <DependentUpon>Search.aspx</DependentUpon>
@@ -518,6 +520,13 @@
     </Compile>
     <Compile Include="Vendor.cs">
       <DependentUpon>SparePartModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VendorAddress.aspx.cs">
+      <DependentUpon>VendorAddress.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VendorAddress.aspx.designer.cs">
+      <DependentUpon>VendorAddress.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

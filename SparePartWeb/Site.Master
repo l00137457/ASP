@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - FeEngineering Sparepart Inc</title>
+    <title><%: Page.Title %> - FeEngineering Part Inc</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -46,19 +46,20 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">FeEngineering</a>
+                    
+                    <h2><a class="navbar-brand" runat="server" >FeEngineering</a></h2>                      
                     <asp:Label CssClass="navbar-brand" ID="lblUsername" runat="server"></asp:Label>
                    
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Welcome</a></li>
-                        <li><a runat="server"  id="mnuReports" href="~/Reports">Reports</a></li>
-                        <li><a runat="server"  id="mnuSearch" href="~/Reports">Search</a></li>
-                        <li><a runat="server"  id="mnuVendors" href="~/Transactions">Vendors</a></li>                        
-                        <li><a runat="server"  id="mmuEquipment" href="~/Transactions">Equipment, Parts & Maintenance</a></li>
-                        <li><a runat="server"  id="mnuStatistics" href="~/Transactions">Statistics & Graphs</a></li>
-                        <li><a runat="server"  id="mmuUpdates" href="~/Transactions">Updates</a></li>
+                        <li><a runat="server"  id="mnuWelcome" href="~/">Welcome</a></li>
+                        <li><a runat="server"  id="mnuReports" href="~/ReportForms">Reports</a></li>
+                        <li><a runat="server"  id="mnuSearch" href="~/Search">Search</a></li>
+                        <li><a runat="server"  id="mnuVendors" href="~/Vendor">Vendors</a></li>                        
+                        <li><a runat="server"  id="mmuEquipment" href="~/Equipment">Equipment, Parts & Maintenance</a></li>
+                        <li><a runat="server"  id="mnuStatistics" href="~/ReportForms">Statistics & Graphs</a></li>
+                        <li><a runat="server"  id="mmuUpdates" href="~/Search">Updates</a></li>
                              
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">

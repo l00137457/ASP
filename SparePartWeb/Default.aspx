@@ -3,9 +3,9 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
    <div class="jumbotron">
-        <h1>My great website</h1>
-        <p class="lead">Welcome to my wonderful website. Click on any of the links below to direct you to relevant information.</p>
-        
+        <h1>The Smart card Company</h1>
+        <p class="lead">Welcome to FeEngineering website. We are a multinational company that manufactures company memomry cards.</p>
+        <p class="lead">Click on any of the links below to direct you to relevant information.</p>
     </div>
 
     <div class="row">
@@ -25,7 +25,7 @@
                 Click here to update records in the database.
             </p>
              <p>
-                <a class="btn btn-default" href="/transactions.aspx">Update records &raquo;</a>
+                <a class="btn btn-default" href="/search.aspx">Update records &raquo;</a>
             </p>
            
         </div>

@@ -15,71 +15,76 @@ namespace SparePartWeb.Account
         Spare_Part_SystemEntities db = new Spare_Part_SystemEntities();
         protected void CreateNewUser_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+             {
+                User user = new User();
+                var username = tbxUsername.Text;
+                var password = tbxPassword.Text;
+                var forename = tbxForename.Text;
+                var surname = tbxSurname.Text;
+                var accessLevel = tbxAccesslevel.Text;
 
-            User user = new User();
-            var username = tbxUsername.Text;
-            var password = tbxPassword.Text;
-            var forename = tbxForename.Text;
-            var surname = tbxSurname.Text;
+                user.Username = username;
+                user.Password = password;
+                user.Forename = forename;
+                user.Surname = surname;
+                user.AccessLevel = Convert.ToInt16(accessLevel);
 
-            user.Username = username;
-            user.Password = password;
-            //user.Username = username;
-            user.Forename = forename;
-            user.Surname = surname;
-
-            //Create the username automatically - optional
-            // var forenameFirstLetter = tbxForename.Text.Substring(0, 1).ToLower();
-            //var username = forenameFirstLetter + surname;
-            bool exists = CheckIfExists(user);
-            if (!exists)
-            {
-                bool updated = UpdateUserRecord(user, "Add");
-                if (updated)
+                bool exists = CheckIfExists(user);
+                if (!exists)
                 {
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
-                    var accessLevel = user.AccessLevel;
-                    switch (accessLevel)
+                    bool updated = UpdateUserRecord(user, "Add");
+                    if (updated)
+                    {                       
+                        
+                        switch (Convert.ToInt16(accessLevel))
+                        {
+                            //Display an employee menu
+                            case 1:
+                                ((SiteMaster)this.Master).UserNameVisibility = true;
+                                ((SiteMaster)this.Master).UserNameLabel = user.Username.ToString();
+                                ((SiteMaster)this.Master).currentuser = user;
+                                ((SiteMaster)this.Master).MenuVisibility = true;
+                                ((SiteMaster)this.Master).EquipmentVisibility = true;
+                                break;
+
+                            case 2:
+                                //Display a manager menu
+                                ((SiteMaster)this.Master).UserNameVisibility = true;
+                                ((SiteMaster)this.Master).UserNameLabel = user.Username.ToString();
+                                ((SiteMaster)this.Master).currentuser = user;
+                                ((SiteMaster)this.Master).MenuVisibility = true;
+                                ((SiteMaster)this.Master).VendorsVisibility = true;
+                                ((SiteMaster)this.Master).EquipmentVisibility = true;
+                                ((SiteMaster)this.Master).StatisticsVisibility = true;
+                                ((SiteMaster)this.Master).SearchVisibility = true;
+                                break;
+
+                            case 3:
+                                // Display an administrator menu
+                                ((SiteMaster)this.Master).UserNameVisibility = true;
+                                ((SiteMaster)this.Master).UserNameLabel = user.Username.ToString();
+                                ((SiteMaster)this.Master).currentuser = user;
+                                ((SiteMaster)this.Master).MenuVisibility = true;
+                                ((SiteMaster)this.Master).UpdatesVisibility = true;
+                                break;
+                          }
+                          IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                        
+                    }
+                    else
                     {
-                        //Display an employee menu
-                        case 1:
-                            ((SiteMaster)this.Master).UserNameVisibility = true;
-                            ((SiteMaster)this.Master).UserNameLabel = user.Username.ToString();
-                            ((SiteMaster)this.Master).currentuser = user;
-                            ((SiteMaster)this.Master).MenuVisibility = true;
-                            ((SiteMaster)this.Master).EquipmentVisibility = true;
-                            break;
-
-                        case 2:
-                            //Display a manager menu
-                            ((SiteMaster)this.Master).UserNameVisibility = true;
-                            ((SiteMaster)this.Master).UserNameLabel = user.Username.ToString();
-                            ((SiteMaster)this.Master).currentuser = user;
-                            ((SiteMaster)this.Master).MenuVisibility = true;
-                            ((SiteMaster)this.Master).VendorsVisibility = true;
-                            ((SiteMaster)this.Master).EquipmentVisibility = true;
-                            ((SiteMaster)this.Master).StatisticsVisibility = true;
-                            ((SiteMaster)this.Master).SearchVisibility = true;
-                            break;
-
-                        case 3:
-                            // Display an administrator menu
-                            ((SiteMaster)this.Master).UserNameVisibility = true;
-                            ((SiteMaster)this.Master).UserNameLabel = user.Username.ToString();
-                            ((SiteMaster)this.Master).currentuser = user;
-                            ((SiteMaster)this.Master).MenuVisibility = true;
-                            ((SiteMaster)this.Master).UpdatesVisibility = true;
-                            break;
+                        ErrorMessage.Text = "Problem registering record to database";
                     }
                 }
                 else
                 {
-                    ErrorMessage.Text = "Problem saving record to database";
+                    ErrorMessage.Text = "The user already exists.";
                 }
             }
             else
             {
-                ErrorMessage.Text = "The user already exists.";
+                ErrorMessage.Text = "Registration details are wrong. Reentry Again.";
             }
         }
 
@@ -122,6 +127,7 @@ namespace SparePartWeb.Account
                         _user.Password = user.Password;
                         _user.Forename = user.Forename;
                         _user.Surname = user.Surname;
+                        _user.AccessLevel = user.AccessLevel;
                     }
                     db.Configuration.AutoDetectChangesEnabled = true;
                     db.Configuration.ValidateOnSaveEnabled = true;
@@ -143,5 +149,19 @@ namespace SparePartWeb.Account
             }
             return updated;
         }
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+            ((SiteMaster)this.Master).MenuVisibility = false;
+            ((SiteMaster)this.Master).VendorsVisibility = false;
+            ((SiteMaster)this.Master).EquipmentVisibility = false;
+            ((SiteMaster)this.Master).StatisticsVisibility = false;
+            ((SiteMaster)this.Master).UpdatesVisibility = false;
+            ((SiteMaster)this.Master).SearchVisibility = false;
+            ((SiteMaster)this.Master).UserNameVisibility = false;
+            ((SiteMaster)this.Master).WelcomeVisibility = false;
+        }
     }
 }
+
+                                

@@ -26,6 +26,8 @@ namespace SparePartWeb.Account
             ((SiteMaster)this.Master).StatisticsVisibility = false;
             ((SiteMaster)this.Master).UpdatesVisibility = false;            
             ((SiteMaster)this.Master).SearchVisibility = false;
+            ((SiteMaster)this.Master).UserNameVisibility = false;
+            ((SiteMaster)this.Master).WelcomeVisibility = false;  
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
@@ -38,68 +40,90 @@ namespace SparePartWeb.Account
        
         protected void LogIn_Click(object sender, EventArgs e)
         {
-            bool authenticated = false;
-            var username = tbxUsername.Text;
-            var password = tbxPassword.Text;
-            foreach (var _user in db.Users.Where(t => t.Username == username && t.Password == password))
+            if(Page.IsValid)
             {
-                user = _user;
-                authenticated = true;
-                //break;
-            }
-            if (authenticated)
-            {
-                var accessLevel = user.AccessLevel;
-
-                switch (accessLevel)
+                
+                bool authenticated = false;
+                var username = tbxUsername.Text;
+                var password = tbxPassword.Text;
+                try
                 {
-                        //Display an employee menu
-                    case 1:
-                        ((SiteMaster)this.Master).UserNameVisibility = true;
-                        ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
-                        ((SiteMaster)this.Master).currentuser = this.user;
-                        ((SiteMaster)this.Master).MenuVisibility = true;
-                        ((SiteMaster)this.Master).EquipmentVisibility = true;
-                        ((SiteMaster)this.Master).SearchVisibility = true;
-                        break;
 
-                    case 2:
-                        //Display a manager menu
-                        ((SiteMaster)this.Master).UserNameVisibility = true;
-                        ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
-                        ((SiteMaster)this.Master).currentuser = this.user;
-                        ((SiteMaster)this.Master).MenuVisibility = true;
-                        ((SiteMaster)this.Master).VendorsVisibility = true;
-                        ((SiteMaster)this.Master).EquipmentVisibility = true;
-                        ((SiteMaster)this.Master).StatisticsVisibility = true;              
-                        ((SiteMaster)this.Master).SearchVisibility = true;
-                        break;
 
-                    case 3:
-                        // Display an administrator menu
-                        ((SiteMaster)this.Master).UserNameVisibility = true;
-                        ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
-                        ((SiteMaster)this.Master).currentuser = this.user;
-                        ((SiteMaster)this.Master).MenuVisibility = true;
-                        ((SiteMaster)this.Master).UpdatesVisibility = true;
-                        break;
-                    default:
-                        FailureText.Text = "Invalid Login attempt";
-                        ErrorMessage.Visible = true;
-                        break;                                                                                        
+                    foreach (var _user in db.Users.Where(t => t.Username == username && t.Password == password))
+                    {
+                        user = _user;
+                        authenticated = true;
+                        //break;
+                    }
                 }
-                Label lblUser = this.Master.FindControl("lblUsername") as Label;
-                lblUser.Text = user.Username.ToString();                                           
-               // ((SiteMaster)this.Master).UserName = user.Username;
-                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                catch (Exception)
+                {
+                    FailureText.Text = "System failure. Records not found";
+                }
+                if (authenticated)
+                {
+                    var accessLevel = user.AccessLevel;
+                    
+                    switch (accessLevel)
+                    {
+                        //Display an employee menu
+                        case 1:                            
+                            ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                            ((SiteMaster)this.Master).currentuser = this.user;
+                            ((SiteMaster)this.Master).MenuVisibility = true;
+                            ((SiteMaster)this.Master).EquipmentVisibility = true;
+                            ((SiteMaster)this.Master).SearchVisibility = true;
+                            ((SiteMaster)this.Master).UserNameVisibility = true;
+                            ((SiteMaster)this.Master).WelcomeVisibility = true;
+                            
+                            break;
 
+                        case 2:
+                            //Display a manager menu                            
+                            ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                            ((SiteMaster)this.Master).currentuser = this.user;
+                            ((SiteMaster)this.Master).MenuVisibility = true;
+                            ((SiteMaster)this.Master).VendorsVisibility = true;
+                            ((SiteMaster)this.Master).EquipmentVisibility = true;
+                            ((SiteMaster)this.Master).StatisticsVisibility = true;
+                            ((SiteMaster)this.Master).SearchVisibility = true;
+                            ((SiteMaster)this.Master).UserNameVisibility = true;
+                            ((SiteMaster)this.Master).WelcomeVisibility = true;
+                            
+                            break;
+
+                        case 3:
+                            // Display an administrator menu                            
+                            ((SiteMaster)this.Master).UserNameLabel = this.user.Username.ToString();
+                            ((SiteMaster)this.Master).currentuser = this.user;
+                            ((SiteMaster)this.Master).MenuVisibility = true;
+                            ((SiteMaster)this.Master).UpdatesVisibility = true;
+                            ((SiteMaster)this.Master).SearchVisibility = true;
+                            ((SiteMaster)this.Master).UserNameVisibility = true;
+                            ((SiteMaster)this.Master).WelcomeVisibility = true;
+                            
+                            break;
+                        default:
+                            FailureText.Text = "Invalid Login attempt";
+                            ErrorMessage.Visible = true;
+                            break;
+                    }
+                    //Label lblUser = this.Master.FindControl("lblUsername") as Label;
+                    //lblUser.Text = user.Username.ToString();                   
+                    
+                    IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
+                }
+                else
+                {
+                    FailureText.Text = "Invalid login attempt. Please check your user details and try again.";
+                    ErrorMessage.Visible = true;
+                }
             }
             else
             {
-                FailureText.Text = "Invalid login attempt. Please check your user details and try again.";
-                ErrorMessage.Visible = true;
+                FailureText.Text = "Please Renter details again";
             }
-        
          }
     }
 }

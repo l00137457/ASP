@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace SparePartWeb
 {
-    public partial class EquipMainResult : System.Web.UI.Page
+    public partial class ReportForms : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

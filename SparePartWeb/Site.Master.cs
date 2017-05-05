@@ -63,7 +63,12 @@ namespace SparePartWeb
             get { return lblUsername.Text; }
             set { this.lblUsername.Text = value; }
         }
-       
+        public bool WelcomeVisibility
+        {
+            get { return mnuWelcome.Visible; }
+            set { this.mnuWelcome.Visible = value; }
+        }
+
         public User currentuser;
 
         protected void Page_Init(object sender, EventArgs e)

@@ -36,7 +36,7 @@ namespace SparePartWeb
 
         protected void cboDatabaseChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var choice = "";
+            //var choice = "";
             var _dropdownlist = (DropDownList)sender;
             if (_dropdownlist.SelectedIndex > -1)
             {
@@ -51,6 +51,22 @@ namespace SparePartWeb
             if (databaseToSearch == "Equipment")
             {
                 Server.Transfer("Equipment.aspx");
+            }
+            else if (databaseToSearch == "Vendor")
+            {
+                Server.Transfer("VendorAddress.aspx");
+            }
+            else if (databaseToSearch == "Spare Part")
+            {
+                Server.Transfer("SparePart.aspx");
+            }
+            else if (databaseToSearch == "Maintenanace")
+            {
+                Server.Transfer("Maintenenace.aspx");
+            }
+            else if (databaseToSearch == "Vendor Address")
+            {
+                Server.Transfer("VendorAddress.aspx");
             }
             else
 
