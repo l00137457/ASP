@@ -27,7 +27,7 @@ namespace SparePartWeb.Account
             ((SiteMaster)this.Master).UpdatesVisibility = false;            
             ((SiteMaster)this.Master).SearchVisibility = false;
             ((SiteMaster)this.Master).UserNameVisibility = false;
-            ((SiteMaster)this.Master).WelcomeVisibility = false;  
+            ((SiteMaster)this.Master).WelcomeVisibility = true;  
             // Enable this once you have account confirmation enabled for password reset functionality
             //ForgotPasswordHyperLink.NavigateUrl = "Forgot";
             OpenAuthLogin.ReturnUrl = Request.QueryString["ReturnUrl"];
@@ -122,6 +122,7 @@ namespace SparePartWeb.Account
             }
             else
             {
+                IdentityHelper.RedirectToReturnUrl(Request.QueryString["ReturnUrl"], Response);
                 FailureText.Text = "Please Renter details again";
             }
          }

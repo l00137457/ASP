@@ -15,7 +15,7 @@
                 Click on this button to view reports available to the user.
             </p>
              <p>
-                <a class="btn btn-default" href="/reports.aspx">View reports &raquo;</a>
+                <a class="btn btn-default" href="/ReportForms.aspx">View reports &raquo;</a>
             </p>
            
         </div>
@@ -25,7 +25,7 @@
                 Click here to update records in the database.
             </p>
              <p>
-                <a class="btn btn-default" href="/search.aspx">Update records &raquo;</a>
+                <a class="btn btn-default" href="/Search.aspx">Update records &raquo;</a>
             </p>
            
         </div>
@@ -35,7 +35,7 @@
                 Click on this link to search for specific information in the database.
             </p>
             <p>
-                <a class="btn btn-default" href="/search.aspx">Search records &raquo;</a>
+                <a class="btn btn-default" href="/Search.aspx">Search records &raquo;</a>
             </p>
         </div>
     </div>

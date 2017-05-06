@@ -8,6 +8,7 @@
     <br />
 
     <br />
+    <div class="mycolour">
     <div class="lead">
         <asp:ListView ID="lstAllProducts" runat="server"
             OnItemEditing="lstAllProducts_ItemEditing"
@@ -73,15 +74,37 @@
                     <asp:Label ID="lblMainID" runat="server" Text='<%#:Item.Main_ID%>' />
                     </td>                    
                         <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Main_name %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxName"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxName"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxName"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxShutDwn" runat="server" Text='<%# BindItem.Type_shutdown%>' />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxShutDwn"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 3 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxShutDwn"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="enter (yes) or leave it empty," 
+                            ValidationExpression="/^yes$/" ControlToValidate="tbxShutDwn"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxBreakDwn" runat="server" Text='<%# BindItem.Type_breakdown %>' />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxBreakDwn"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 3 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxBreakDwn"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="enter (yes) or leave it empty," 
+                            ValidationExpression="/^yes$/" ControlToValidate="tbxBreakDwn"/>
                     </td>
                     <td>
                         <asp:TextBox ID="tbxTotalHrs" runat="server" Text='<%# BindItem.Total_man_hrs %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxTotalHrs"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxTotalHrs"/>
                     </td>                                       
                     
                 </tr>
@@ -96,18 +119,41 @@
                     </td>                 
                     <td>                    
                         <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Main_name %>' />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxName"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxName"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxName"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxShutDwn" runat="server" Text='<%# BindItem.Type_shutdown%>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxName"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 3 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxShutDwn"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="enter (yes) or leave it empty," 
+                            ValidationExpression="/^yes$/" ControlToValidate="tbxShutDwn"/>   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxBreakDwn" runat="server" Text='<%# BindItem.Type_breakdown %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxBreakDwn"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 3 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxBreakDwn"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="enter (yes) or leave it empty," 
+                            ValidationExpression="/^yes$/" ControlToValidate="tbxBreakDwn"/>
                     </td>
                     <td>
                         <asp:TextBox ID="tbxTotalHrs" runat="server" Text='<%# BindItem.Total_man_hrs %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxTotalHrs"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxTotalHrs"/>
                     </td>                                       
                 </tr>
             </InsertItemTemplate>
         </asp:ListView>
     </div>
+  </div>
 </asp:Content>

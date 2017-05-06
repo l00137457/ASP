@@ -15,7 +15,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body >
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -87,7 +87,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Practice</p>
             </footer>
         </div>
     </form>

@@ -48,25 +48,28 @@ namespace SparePartWeb
 
         protected void Search_Click(object sender, EventArgs e)
         {
+            Response.BufferOutput = true;
             if (databaseToSearch == "Equipment")
             {
-                Server.Transfer("Equipment.aspx");
+                Response.Redirect("/Equipment.aspx");
+                //Server.Transfer("Equipment.aspx");
             }
             else if (databaseToSearch == "Vendor")
             {
-                Server.Transfer("VendorAddress.aspx");
+                Response.Redirect("/VendorAddress.aspx");
             }
             else if (databaseToSearch == "Spare Part")
             {
-                Server.Transfer("SparePart.aspx");
+                Response.Redirect("/Part.aspx");
             }
             else if (databaseToSearch == "Maintenanace")
             {
-                Server.Transfer("Maintenenace.aspx");
+                Response.Redirect("/Maintenenace.aspx");
             }
             else if (databaseToSearch == "Vendor Address")
             {
-                Server.Transfer("VendorAddress.aspx");
+                Response.Redirect("/VendorAddress.aspx");
+                //Server.Transfer("VendorAddress.aspx");
             }
             else
 

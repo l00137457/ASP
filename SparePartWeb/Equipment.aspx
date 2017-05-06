@@ -89,24 +89,63 @@
                     </td> 
                     <td>
                         <asp:TextBox ID="tbxEquipName" runat="server" Text='<%# Bind("Equip_name") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="bxEquipName"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Forename max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="bxEquipName"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="bxEquipName" />
                     </td>
                     <td>
                         <asp:TextBox ID="tbxEquipLocation" runat="server" Text='<%# Bind("Equip_Location") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxEquipLocation"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Forename max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxEquipLocation"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxEquipLocation"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxPurchaseD" runat="server" Text='<%# Bind("Purchase_date") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxPurchaseD"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Insert Date" 
+                            type="Date" operator="DataTypeCheck" ControlToValidate="tbxPurchaseD"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="enter date in yyyy/mm/dd or yyyy-mm-dd" 
+                            ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$" 
+                            ControlToValidate="tbxPurchaseD"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxExpL" runat="server" Text='<%# Bind("Exp_lifetime") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxExpL"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter number" 
+                            type="Integer" operator="DataTypeCheck" ControlToValidate="tbxExpL"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxAvg" runat="server" Text='<%# Bind("Avg_man_hrs_shutdown") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxAvg"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter number" 
+                            type="Integer" operator="DataTypeCheck" ControlToValidate="tbxAvg"/> 
                     </td>
                     <td>
                         <asp:TextBox ID="tbxPurchaseP" runat="server" Text='<%# Bind("Purchase_price") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxPurchaseP"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxPurchaseP"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxEst" runat="server" Text='<%# Bind("Est_cost_brkdown") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxEst"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxEst"/> 
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxEst"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxEst"/> 
                     </td>
                 </tr>
             </EditItemTemplate>
@@ -119,28 +158,69 @@
                             Text="Clear" />
                     </td>                 
                     <td>
-                        <asp:TextBox ID="tbxEqiupID" runat="server" Text='<%# Bind("Equip_ID") %>'/>                    
+                        <asp:TextBox ID="tbxEqiupID" runat="server" Text='<%# Bind("Equip_ID") %>'/> 
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="ttbxEqiupID"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Forename max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxEqiupID"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxEqiupID"/>                   
                     </td>                    
                     <td>
                         <asp:TextBox ID="tbxEquipName" runat="server" Text='<%# Bind("Equip_name") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="bxEquipName"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Forename max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="bxEquipName"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="bxEquipName"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxEquipLocation" runat="server" Text='<%# Bind("Equip_Location") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxEquipLocation"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Forename max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxEquipLocation"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxEquipLocation"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxPurchaseD" runat="server" Text='<%# Bind("Purchase_date") %>' />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxPurchaseD"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="Insert Date" 
+                            type="Date" operator="DataTypeCheck" ControlToValidate="tbxPurchaseD"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="enter date in yyyy/mm/dd or yyyy-mm-dd" 
+                            ValidationExpression="^(19|20)\d\d[- /.](0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])$" 
+                            ControlToValidate="tbxPurchaseD"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxExpL" runat="server" Text='<%# Bind("Exp_lifetime") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxExpL"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter number" 
+                            type="Integer" operator="DataTypeCheck" ControlToValidate="tbxExpL"/>                        
                     </td>
                     <td>
                         <asp:TextBox ID="tbxAvg" runat="server" Text='<%# Bind("Avg_man_hrs_shutdown") %>' />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxAvg"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter number" 
+                            type="Integer" operator="DataTypeCheck" ControlToValidate="tbxAvg"/>   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxPurchaseP" runat="server" Text='<%# Bind("Purchase_price") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxPurchaseP"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxPurchaseP"/>  
                     </td>
                     <td>
                         <asp:TextBox ID="tbxEst" runat="server" Text='<%# Bind("Est_cost_brkdown") %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxEst"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="enter money" 
+                            type="Currency" operator="DataTypeCheck" ControlToValidate="tbxEst"/> 
                     </td>
                 </tr>
             </InsertItemTemplate>

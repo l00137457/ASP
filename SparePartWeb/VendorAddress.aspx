@@ -77,22 +77,52 @@
                             Text="Cancel" />
                     </td>
                     <td>
-                    <asp:Label ID="lblName" runat="server" Text='<%#:Item.Vendor_name%>' />
+                    <asp:Label ID="lblName" runat="server" Text='<%#:Item.Vendor_name%>' />                                               
                     </td> 
                     <td>
                         <asp:TextBox ID="tbxAddr1" runat="server" Text='<%# BindItem.Ven_address_addr1 %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxAddr1"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 50 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxAddr1"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-50)" 
+                            ValidationExpression="[\w]{1,50}" ControlToValidate="tbxAddr1"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxAddr2" runat="server" Text='<%# BindItem.Ven_address_addr2 %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxAddr2"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 50 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxAddr2"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-50)" 
+                            ValidationExpression="[\w]{1,50}" ControlToValidate="tbxAddr2"/>        
                     </td>
                     <td>
                         <asp:TextBox ID="tbxCity" runat="server" Text='<%# BindItem.Ven_address_city %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxCity"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxCity"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxCity"/>    
                     </td>
                     <td>
                         <asp:TextBox ID="tbxCounty" runat="server" Text='<%# BindItem.Ven_address_county %>' />
+                         <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxCounty"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxCounty"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxCounty"/>         
                     </td>
                     <td>
                         <asp:TextBox ID="tbxPostcode" runat="server" Text='<%# BindItem.Ven_address_postcode %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxPostcode"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="max of 9 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxPostcode"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-9)" 
+                            ValidationExpression="[\w]{1,9}" ControlToValidate="tbxPostcode"/>     
                     </td>
                     
                 </tr>
@@ -106,22 +136,58 @@
                             Text="Clear" />
                     </td>                 
                     <td>
-                        <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Vendor_name %>'/>                    
+                        <asp:TextBox ID="tbxName" runat="server" Text='<%# BindItem.Vendor_name %>'/>  
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxName"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxName"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxName"/>                                     
                     </td>                    
                     <td>
                         <asp:TextBox ID="tbxAddr1" runat="server" Text='<%# BindItem.Ven_address_addr1%>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxAddr1"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 50 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxAddr1"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-50)" 
+                            ValidationExpression="[\w]{1,50}" ControlToValidate="tbxAddr1"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxAddr2" runat="server" Text='<%# BindItem.Ven_address_addr2 %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxAddr2"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 50 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxAddr2"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-50)" 
+                            ValidationExpression="[\w]{1,50}" ControlToValidate="tbxAddr2"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxCity" runat="server" Text='<%# BindItem.Ven_address_city %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxCity"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage=" max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxCity"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxCity"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxCounty" runat="server" Text='<%# BindItem.Ven_address_county %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxCounty"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="max of 30 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxCounty"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-30)" 
+                            ValidationExpression="[\w]{1,30}" ControlToValidate="tbxCounty"/>                   
                     </td>
                     <td>
                         <asp:TextBox ID="tbxPostcode" runat="server" Text='<%# BindItem.Ven_address_postcode %>' />
+                        <asp:RequiredFieldValidator runat="server" ControlToValidate="tbxPostcode"
+                            CssClass="text-danger" ErrorMessage="field is required." />
+                        <asp:CompareValidator runat="server" ErrorMessage="max of 9 letters" 
+                            type="String" operator="DataTypeCheck" ControlToValidate="tbxPostcode"/>
+                        <asp:RegularExpressionValidator  runat="server" ErrorMessage="Alphanumeric value required(1-9)" 
+                            ValidationExpression="[\w]{1,9}" ControlToValidate="tbxPostcode"/>                   
                     </td>
                    
                 </tr>

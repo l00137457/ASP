@@ -253,16 +253,6 @@
     <Content Include="Global.asax" />
     <Content Include="Search.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="SparePartModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SparePartModel.edmx</DependentUpon>
-      <LastGenOutput>SparePartModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="SparePartModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>SparePartModel.edmx</DependentUpon>
-      <LastGenOutput>SparePartModel.cs</LastGenOutput>
-    </Content>
     <Content Include="VendorAddress.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -271,13 +261,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <EntityDeploy Include="SparePartModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SparePartModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="SparePartModel.edmx.diagram">
-      <DependentUpon>SparePartModel.edmx</DependentUpon>
-    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -391,9 +374,6 @@
     <Compile Include="Account\VerifyPhoneNumber.aspx.designer.cs">
       <DependentUpon>VerifyPhoneNumber.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Address.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -405,21 +385,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Company.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Company_Contact.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contact_Person.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -435,17 +406,8 @@
     <Compile Include="Equipment.aspx.designer.cs">
       <DependentUpon>Equipment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Equipment_1.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Equipment_Sparepart.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Maintenanace_Equipment.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Maintenance.aspx.cs">
       <DependentUpon>Maintenance.aspx</DependentUpon>
@@ -453,12 +415,6 @@
     </Compile>
     <Compile Include="Maintenance.aspx.designer.cs">
       <DependentUpon>Maintenance.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Maintenance_1.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Maintenance_Type.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Part.aspx.cs">
@@ -469,9 +425,6 @@
       <DependentUpon>Part.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Purchase.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="ReportForms.aspx.cs">
       <DependentUpon>ReportForms.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -500,43 +453,7 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
-    <Compile Include="SPAREPART.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SparePartModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SparePartModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SparePartModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="SparePartModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SparePartModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Sparepart_Vendor_1.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="sysdiagram.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Type.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Used_Part.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="User.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Vendor.cs">
-      <DependentUpon>SparePartModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="VendorAddress.aspx.cs">
       <DependentUpon>VendorAddress.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

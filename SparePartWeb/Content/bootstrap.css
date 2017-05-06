@@ -2222,48 +2222,54 @@ textarea.input-lg {
         filter: alpha(opacity=65);
         -webkit-box-shadow: none;
         box-shadow: none;
-    }
-
-.btn-default {
-    color: #333333;
-    background-color: #ffffff;
-    border-color: #cccccc;
+    }rdad4e;
+    bo
+  olor: #f0ad4e;
+    borrrder-color: #eea236;
 }
 
-    .btn-default:hover,
-    .btn-default:focus,
-    .btn-default:active,
-    .btn-default.active,
-    .open .dropdown-toggle.btn-default {
-        color: #333333;
-        background-color: #ebebeb;
-        border-color: #adadad;
+    .btn-warning:hover,
+    .btn-warning:focus,
+    .btn-warning:active,
+    .btn-warning.active,
+    .open .dropdown-toggle.btn-warning {
+        color: #ffffff;
+        background-color: #ed9c28;
+        border-color: #d58512;
     }
 
-    .btn-default:active,
-    .btn-default.active,
-    .open .dropdown-toggle.btn-default {
+    .btn-warning:active,
+    .btn-warning.active,
+    .open .dropdown-toggle.btn-warning {
         background-image: none;
     }
 
-    .btn-default.disabled,
-    .btn-default[disabled],
-    fieldset[disabled] .btn-default,
-    .btn-default.disabled:hover,
-    .btn-default[disabled]:hover,
-    fieldset[disabled] .btn-default:hover,
-    .btn-default.disabled:focus,
-    .btn-default[disabled]:focus,
-    fieldset[disabled] .btn-default:focus,
-    .btn-default.disabled:active,
-    .btn-default[disabled]:active,
-    fieldset[disabled] .btn-default:active,
-    .btn-default.disabled.active,
-    .btn-default[disabled].active,
-    fieldset[disabled] .btn-default.active {
-        background-color: #ffffff;
-        border-color: #cccccc;
+    .btn-warning.disabled,
+    .btn-warning[disabled],
+    fieldset[disabled] .btn-warning,
+    .btn-warning.disabled:hover,
+    .btn-warning[disabled]:hover,
+    fieldset[disabled] .btn-warning:hover,
+    .btn-warning.disabled:focus,
+    .btn-warning[disabled]:focus,
+    fieldset[disabled] .btn-warning:focus,
+    .btn-warning.disabled:active,
+    .btn-warning[disabled]:active,
+    fieldset[disabled] .btn-warning:active,
+    .btn-warning.disabled.active,
+    .btn-warning[disabled].active,
+    fieldset[disabled] .btn-warning.active {
+        background-color: #f0ad4e;
+        border-color: #eea236;
     }
+
+.btn-danger {
+    color: #ffffff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+    .btn-danger:hover
 
 .btn-primary {
     color: #ffffff;
